@@ -41,7 +41,7 @@ const LandingPage = () => {
               <Button variant="ghost">Features</Button>
               <Button variant="ghost">Pricing</Button>
               <Button variant="ghost">About</Button>
-              <Button variant="default">Sign Up</Button>
+              <Button variant="default">Sign</Button>
             </div>
             <div className="flex items-center sm:hidden">
               <Button variant="ghost" size="icon">
