@@ -3,7 +3,7 @@ import React from "react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "../components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../components/ui/table";
 
-const Events = () => {
+const Academics = () => {
   // Dummy data for events
   const upcomingEvents = [
     {
@@ -41,8 +41,8 @@ const Events = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Upcoming Events Section */}
         <section className="mb-12">
-        <h2 className="text-6xl font-extrabold text-[#E31837] mt-16 mb-6">Welcome to the Events page</h2>
-        <p className="text-xl text-white/70 mb-6">Here you will see all events being organized by club heads with important information on them. </p>
+        <h2 className="text-6xl font-extrabold text-[#E31837] mt-16 mb-6">Welcome to the Academic Events page</h2>
+        <p className="text-xl text-white/70 mb-6">Here you will see all events being organized by the school faculty with important information on them. </p>
           <h2 className="text-3xl font-extrabold text-[#E31837] mb-6">Upcoming Events</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {upcomingEvents.map((event) => (
@@ -88,4 +88,4 @@ const Events = () => {
   );
 };
 
-export default Events;
+export default Academics;

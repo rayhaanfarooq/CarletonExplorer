@@ -16,37 +16,33 @@ const Login = () => {
   };
 
   return (
-    <div
-      className="min-h-screen flex items-center justify-center bg-cover bg-center"
-      style={{ backgroundImage: "url('https://carleton.ca/biology/wp-content/uploads/shutterstock_433564669.jpg')" }}
-    >
-    {/* I am thinking of asking the club heads we partner with to make us a collage of their instagram photos with their permission so no copyright rn this is a placeholder */}
-      <Card className="w-full max-w-md bg-white shadow-xl rounded-lg p-6  border-2 border-foreground">
+    <div className="min-h-screen flex items-center justify-center bg-black text-white">
+      <Card className="w-full max-w-md bg-black/30 border border-[#E31837]/50 shadow-xl rounded-lg p-6">
         <CardHeader>
-          <CardTitle className="text-center text-2xl font-bold mb-4">Login</CardTitle>
+          <CardTitle className="text-center text-2xl font-bold mb-4 text-[#E31837]">Login</CardTitle>
         </CardHeader>
         <CardContent>
-          <form className="space-y-4">
+          <form className="flex flex-col gap-4 space-y-4">
             <div>
-              <Input type="text" placeholder="Username" className="w-full" />
+              <Input type="text" placeholder="Username" className="w-full bg-black text-white border-[#E31837]/50" />
             </div>
             <div>
-              <Input type="password" placeholder="Password" className="w-full" />
+              <Input type="password" placeholder="Password" className="w-full bg-black text-white border-[#E31837]/50" />
             </div>
             <Link to="/clubhead">
-            <Button
-              type="button"
-              onClick={handleLogin}
-              disabled={loading}
-              className="w-full flex items-center justify-center"
-            >
-              {loading ? <Loader className="animate-spin mr-2" size={16} /> : "Login"}
-            </Button>
+              <Button
+                type="button"
+                onClick={handleLogin}
+                disabled={loading}
+                className="w-full flex items-center justify-center bg-[#E31837] hover:bg-[#E31837]/80 transition"
+              >
+                {loading ? <Loader className="animate-spin mr-2" size={16} /> : "Login"}
+              </Button>
             </Link>
           </form>
           <div className="text-center mt-4">
-            <p className="text-sm text-gray-600">
-              Don't have an account? <a href="/register" className="text-primary font-medium hover:underline">Register with us</a>
+            <p className="text-sm text-white/70">
+              Don't have an account? <a href="/register" className="text-[#E31837] font-medium hover:underline">Register with us</a>
             </p>
           </div>
         </CardContent>
@@ -54,6 +50,5 @@ const Login = () => {
     </div>
   );
 };
-
 
 export default Login;
