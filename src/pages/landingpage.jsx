@@ -11,30 +11,42 @@ import {
   Heart
 } from 'lucide-react';
 
+function randomArray() {
+  const arr = [];
+  for (let i = 0; i < 50; i++){
+    arr.push(Math.random());
+  }
+  return arr;
+};
+const left = randomArray();
+const top = randomArray();
+const width = randomArray();
+const height = randomArray();
+
 const LandingPage = () => {
 
   const [date, setDate] = useState(new Date());
 
-
   // Had to comment this out because it gave me a headache
+
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  // const [scrollY, setScrollY] = useState(0);
-  // useEffect(() => {
-  //   const handleMouseMove = (e) => {
-  //     setMousePosition({ x: e.clientX, y: e.clientY });
-  //   };
+  const [scrollY, setScrollY] = useState(0);
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
 
    
-  //   const handleScroll = () => setScrollY(scrollY - 1000);
+    const handleScroll = () => setScrollY(scrollY - 1000);
     
-  //   window.addEventListener('mousemove', handleMouseMove);
-  //   window.addEventListener('scroll', handleScroll);
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('scroll', handleScroll);
     
-  //   return async () => {
-  //     window.removeEventListener('mousemove', handleMouseMove);
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, [scrollY]);
+    return async () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrollY]);
 
   // Custom cursor glow effect
   const cursorStyle = {
@@ -48,35 +60,38 @@ const LandingPage = () => {
       
       {/* Animated geometric patterns */}
       <div className="fixed inset-0 overflow-hidden opacity-20">
-        {[...Array(50)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full mix-blend-overlay animate-float"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              width: `${Math.random() * 300}px`,
-              height: `${Math.random() * 300}px`,
-              background: `linear-gradient(45deg, #E31837 ${i % 2 ? '0%' : '50%'}, transparent)`,
-              animation: `float ${10 + i * 2}s infinite`,
-              animationDelay: `${i * -0.5}s`,
-            }}
-          />
-        ))}
-      </div>
+      {[...Array(50)].map((_, i) => {
+      return (
+        <div
+          key={i}
+          className="absolute rounded-full mix-blend-overlay animate-float-diagonal"
+          style={{
+            left: `${left[i] * 100}%`,  // Adjusts left position with scroll
+            top: `${top[i] * 100 }%`,
+            width: `${width[i] * 300 + Math.sin(scrollY / 20000) * 5}px`,
+            height: `${height[i] * 300 + Math.sin(scrollY / 20000) * 2}px`,
+            background: `linear-gradient(45deg, #E31837 ${i % 2 ? '0%' : '50%'}, transparent)`,
+            animation: `float ${10 + i * 2}s infinite`,
+            animationDelay: `${i * -0.5}s`,
+          }}
+        />
+      );
+    })}
+</div>
+
 
       {/* Hero Section */}
       <div className="relative min-h-screen flex items-center justify-center px-4">
         {/* Animated ravens silhouette background */}
         <div className="absolute inset-0 overflow-hidden opacity-10">
-          {[...Array(5)].map((_, i) => (
+          {[...Array(10)].map((_, i) => (
             <Feather
               key={i}
               className="absolute text-[#E31837] animate-float-diagonal"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                fontSize: `${Math.random() * 100 + 50}px`,
+                left: `${left[i] * 100}%`,
+                top: `${top[i] * 100}%`,
+                fontSize: `${width[i] * 100 + 50}px`,
                 animationDelay: `${i * -2}s`,
               }}
             />
