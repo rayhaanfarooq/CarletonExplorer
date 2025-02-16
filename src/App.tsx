@@ -8,6 +8,7 @@ import Login from "./pages/login";
 import Events from "./pages/events";
 import About from "./pages/about";
 import ClubHeadView from "./pages/clubhead";
+import Academics from "./pages/academics";
 import {
   Bird,
   Home,
@@ -15,7 +16,7 @@ import {
   User,
   GraduationCap,
 } from 'lucide-react';
-import Academics from "./pages/academics";
+
 /*
 DO NOT CHANGE ANYTHING HERE WE NEED THIS FOR THE ROUTER TO WORK.
 If you need to work on the landing page you can use /pages/landingpage.tsx
@@ -46,7 +47,6 @@ function App() {
                   <Link to={item.link}>
                     <Button
                     key={index}
-                    variant="ghost"
                     className="group relative overflow-hidden rounded-xl text-white/90 hover:text-white transition-all duration-500"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-[#E31837] to-[#E31837]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
